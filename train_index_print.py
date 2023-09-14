@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.cluster import MiniBatchKMeans
 from multiprocessing import cpu_count
 
-# Example: 
+# Example:
 #       python3 train_index_print.py mi-test v2
 
 exp_dir_arg = sys.argv[1] if len(sys.argv) > 1 else "mi-test"
@@ -12,6 +12,7 @@ version_arg = sys.argv[2] if len(sys.argv) > 1 else "v2"
 
 now_dir = os.getcwd()
 n_cpu = cpu_count()
+
 
 # скопировано и немного доработаны логи из infer-web.py#L585
 def train_index(exp_dir1, version19):
@@ -85,5 +86,6 @@ def train_index(exp_dir1, version19):
     # faiss.write_index(index, '%s/added_IVF%s_Flat_FastScan_%s.index'%(exp_dir,n_ivf,version19))
     # print("成功构建索引，added_IVF%s_Flat_FastScan_%s.index"%(n_ivf,version19))
     return "OK"
+
 
 print(train_index(exp_dir_arg, version_arg))

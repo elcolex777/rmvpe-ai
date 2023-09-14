@@ -1,23 +1,25 @@
 import os, sys
 from random import shuffle
 
-# Example: 
+# Example:
 #       python3 create_filelist_print.py mi-test v2 True 40k 0
 
 exp_dir1 = sys.argv[1] if len(sys.argv) > 1 else "mi-test"
 version19 = sys.argv[2] if len(sys.argv) > 1 else "v2"
-if_f0_3 = sys.argv[3] == "True" if len(sys.argv) > 1 else True # 模型是否带音高指导(唱歌一定要, 语音可以不要)
+if_f0_3 = (
+    sys.argv[3] == "True" if len(sys.argv) > 1 else True
+)  # 模型是否带音高指导(唱歌一定要, 语音可以不要)
 sr2 = sys.argv[4] if len(sys.argv) > 1 else "40k"
 spk_id5 = int(sys.argv[5]) if len(sys.argv) > 1 else 0
 
-#print("exp_dir1=%s, version19=%s, if_f0_3=%s, sr2=%s, spk_id5=%s" % (exp_dir1, version19,if_f0_3,sr2,spk_id5) )
+# print("exp_dir1=%s, version19=%s, if_f0_3=%s, sr2=%s, spk_id5=%s" % (exp_dir1, version19,if_f0_3,sr2,spk_id5) )
 
-#version19 = "v2"
+# version19 = "v2"
 now_dir = os.getcwd()
-#exp_dir1 = "mi-test"
-#if_f0_3 = True
-#sr2 = "40k"
-#spk_id5 = 0
+# exp_dir1 = "mi-test"
+# if_f0_3 = True
+# sr2 = "40k"
+# spk_id5 = 0
 
 # 生成filelist
 exp_dir = "%s/logs/%s" % (now_dir, exp_dir1)
